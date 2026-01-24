@@ -49,8 +49,9 @@ play.init = function (depth, map){
 	}
 	play.show();
 	
-	//绑定点击事件
-	com.canvas.addEventListener("click",play.clickCanvas)
+	//绑定点击事件（移除旧的避免重复绑定）
+	com.canvas.removeEventListener("click",play.clickCanvas);
+	com.canvas.addEventListener("click",play.clickCanvas);
 	//clearInterval(play.timer);
 	//com.get("autoPlay").addEventListener("click", function(e) {
 		//clearInterval(play.timer);
@@ -312,9 +313,12 @@ play.indexOfPs = function (ps,xy){
 //获得点击的着点
 play.getClickPoint = function (e){
 	var domXY = com.getDomXY(com.canvas);
-	var x=Math.round((e.pageX-domXY.x-com.pointStartX-20)/com.spaceX)
-	var y=Math.round((e.pageY-domXY.y-com.pointStartY-20)/com.spaceY)
-	return {"x":x,"y":y}
+	var x=Math.round((e.pageX-domXY.x-com.pointStartX-20)/com.spaceX);
+	var y=Math.round((e.pageY-domXY.y-com.pointStartY-20)/com.spaceY);
+	// 边界限制
+	x = Math.max(0, Math.min(8, x));
+	y = Math.max(0, Math.min(9, y));
+	return {"x":x,"y":y};
 }
 
 //获得棋子

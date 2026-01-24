@@ -97,9 +97,10 @@ AI.getMapAllMan = function (map, my){
 AI.getMoves = function (map, my){
 	var manArr = AI.getMapAllMan (map, my);
 	var moves = [];
-	var foul=play.isFoul;
+	var foul=play.isFoul || [];
 	for (var i=0; i<manArr.length; i++){
 		var man = manArr[i];
+		if (!man || !man.bl) continue;
 		var val=man.bl(map);
 		
 		for (var n=0; n<val.length; n++){
@@ -192,7 +193,8 @@ AI.getAlphaBeta = function (A, B, depth, map ,my) {
 			return rootKey;
 		}
 	}
-　return {"key":key,"x":newX,"y":newY,"value":A};
+	// 返回当前最佳走法
+	return {"key":key,"x":newX,"y":newY,"value":A};
 }
 
 //奖着法记录到历史表

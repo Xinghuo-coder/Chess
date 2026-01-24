@@ -271,11 +271,11 @@ com.getDomXY = function (dom){
 //获得cookie
 com.getCookie = function(name){
 	if (document.cookie.length>0){
-		start=document.cookie.indexOf(name + "=")
+		var start=document.cookie.indexOf(name + "=")
 		if (start!=-1){
 			start=start + name.length+1
-			end=document.cookie.indexOf(";",start)
-		if (end==-1) end=document.cookie.length
+			var end=document.cookie.indexOf(";",start)
+			if (end==-1) end=document.cookie.length
 			return unescape(document.cookie.substring(start,end))
 		}
 	}
@@ -553,64 +553,66 @@ com.bylaw.j = function (x,y,map,my){
 //炮
 com.bylaw.p = function (x,y,map,my){
 	var d=[];
+	var n, i;
+	
 	//左侧检索
-	var n=0;
-	for (var i=x-1; i>= 0; i--){
+	n=0;
+	for (i=x-1; i>= 0; i--){
 		if (map[y][i]) {
 			if (n==0){
 				n++;
 				continue;
 			}else{
 				if (com.mans[map[y][i]].my!=my) d.push([i,y]);
-				break
+				break;
 			}
 		}else{
-			if(n==0) d.push([i,y])
+			if(n==0) d.push([i,y]);
 		}
 	}
 	//右侧检索
-	var n=0;
-	for (var i=x+1; i <= 8; i++){
+	n=0;
+	for (i=x+1; i <= 8; i++){
 		if (map[y][i]) {
 			if (n==0){
 				n++;
 				continue;
 			}else{
 				if (com.mans[map[y][i]].my!=my) d.push([i,y]);
-				break
+				break;
 			}
 		}else{
-			if(n==0) d.push([i,y])
+			if(n==0) d.push([i,y]);
 		}
 	}
 	//上检索
-	var n=0;
-	for (var i = y-1 ; i >= 0; i--){
+	n=0;
+	for (i = y-1 ; i >= 0; i--){
 		if (map[i][x]) {
 			if (n==0){
 				n++;
 				continue;
 			}else{
 				if (com.mans[map[i][x]].my!=my) d.push([x,i]);
-				break
+				break;
 			}
 		}else{
-			if(n==0) d.push([x,i])
+			if(n==0) d.push([x,i]);
 		}
 	}
 	//下检索
-	var n=0;
-	for (var i = y+1 ; i<= 9; i++){
+	n=0;
+	for (i = y+1 ; i<= 9; i++){
 		if (map[i][x]) {
 			if (n==0){
 				n++;
 				continue;
 			}else{
 				if (com.mans[map[i][x]].my!=my) d.push([x,i]);
-				break
+				break;
 			}
 		}else{
-			if(n==0) d.push([x,i])
+			if(n==0) d.push([x,i]);
 		}
 	}
 	return d;
