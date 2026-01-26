@@ -2,6 +2,14 @@
 
 var com = com||{};
 
+// Cordova 环境检测
+com.isCordova = function() {
+	return typeof cordova !== 'undefined' || typeof window.cordova !== 'undefined';
+};
+
+// 设备就绪标志
+com.deviceReady = false;
+
 com.init = function (stype){
 	
 	com.nowStype= stype || com.getCookie("stype") ||"stype2";
@@ -73,6 +81,49 @@ com.stype = {
 //获取ID
 com.get = function (id){
 	return document.getElementById(id)
+}
+
+// 初始化函数
+com.onDeviceReady = function(){
+	com.deviceReady = true;
+	
+	// 状态栏设置（仅Cordova环境）
+	if (com.isCordova() && window.StatusBar) {
+		StatusBar.styleDefault();
+		StatusBar.backgroundColorByHexString('#000000');
+	}
+	
+	// 监听返回键（Android）
+	if (com.isCordova()) {
+		document.addEventListener('backbutton', com.onBackButton, false);
+	}
+	
+	console.log('设备就绪，Cordova环境：' + com.isCordova());
+}
+
+// Android 返回键处理
+com.onBackButton = function(e) {
+	e.preventDefault();
+	
+	// 如果在游戏界面，返回菜单
+	if (com.get("chessBox").style.display === "block") {
+		if (confirm("确定要返回主菜单吗？")) {
+			com.get("chessBox").style.display = "none";
+			com.get("menuBox").style.display = "block";
+			com.get("indexBox").style.display = "block";
+			com.get("menuQj").style.display = "none";
+			com.get("menuDy").style.display = "none";
+		}
+	} else {
+		// 在主菜单，退出应用
+		if (confirm("确定要退出游戏吗？")) {
+			if (navigator.app) {
+				navigator.app.exitApp();
+			} else if (navigator.device) {
+				navigator.device.exitApp();
+			}
+		}
+	}
 }
 
 window.onload = function(){
@@ -215,6 +266,14 @@ window.onload = function(){
 		com.gambit=data.split(" ");
 		AI.historyBill = com.gambit;
 	})
+	
+	// Cordova 设备就绪事件
+	if (com.isCordova()) {
+		document.addEventListener('deviceready', com.onDeviceReady, false);
+	} else {
+		// 浏览器环境直接调用
+		com.onDeviceReady();
+	}
 }
 
 //载入图片

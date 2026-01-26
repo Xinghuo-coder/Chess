@@ -13,8 +13,24 @@ Demo：https://itlwei.github.io/Chess/
 * 不依赖任何类库，全部原生Javascript，使用html5 canvas.
 * 实现中不涉及任何浏览器特性，所以不存在浏览器兼容性问题.
 * 代码结构极其简洁明了，你可以轻易的阅读，修改成自己版本.
+* **完美适配移动端和PC端**，支持触摸操作和响应式布局
+* **支持打包成Android APK**，可安装到手机独立运行
+
+## 文档
+
+* **[移动端适配说明](MOBILE_ADAPTATION.md)** - 移动端和PC端响应式适配详解
+* **[APK打包指南](BUILD_APK.md)** - 完整的Android应用打包教程
+* **[快速打包指南](QUICK_BUILD.md)** - APK打包快速入门
+* **[AI编程指南](.github/copilot-instructions.md)** - 代码架构和开发规范
 
 ##Change Log
+### v1.6.0
+* 添加完整的移动端支持（触摸事件、响应式布局）
+* 添加Android APK打包配置（Cordova）
+* 优化代码质量（修复Bug、改进性能）
+* 添加返回键处理和状态栏设置
+* 完善文档（适配说明、打包指南）
+
 ### v1.5.1
 * 修复BUG
 

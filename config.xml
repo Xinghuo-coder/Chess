@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.yiyeguzou.chess" version="1.6.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>中国象棋</name>
+    <description>
+        HTML5中国象棋游戏，支持人机对弈和棋局挑战
+    </description>
+    <author email="itlwei@163.com" href="https://itlwei.github.io/Chess/">
+        一叶孤舟
+    </author>
+    
+    <!-- 内容安全策略 -->
+    <content src="index.html" />
+    
+    <!-- 允许访问的域名 -->
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    
+    <!-- 偏好设置 -->
+    <preference name="Orientation" value="portrait" />
+    <preference name="Fullscreen" value="false" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    
+    <!-- 性能优化 -->
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="BackupWebStorage" value="local" />
+    <preference name="LoadUrlTimeoutValue" value="60000" />
+    <preference name="InAppBrowserStorageEnabled" value="true" />
+    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="FadeSplashScreen" value="true" />
+    <preference name="FadeSplashScreenDuration" value="300" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    
+    <!-- Android平台配置 -->
+    <platform name="android">
+        <!-- 权限 -->
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.VIBRATE" />
+        </config-file>
+        
+        <!-- Android版本要求 -->
+        <preference name="android-minSdkVersion" value="22" />
+        <preference name="android-targetSdkVersion" value="33" />
+        <preference name="android-compileSdkVersion" value="33" />
+        
+        <!-- 硬件加速 -->
+        <preference name="AndroidLaunchMode" value="singleTop" />
+        <preference name="AndroidPersistentFileLocation" value="Internal" />
+        
+        <!-- 应用图标 - ldpi -->
+        <icon density="ldpi" src="res/icon/android/ldpi.png" />
+        <!-- mdpi -->
+        <icon density="mdpi" src="res/icon/android/mdpi.png" />
+        <!-- hdpi -->
+        <icon density="hdpi" src="res/icon/android/hdpi.png" />
+        <!-- xhdpi -->
+        <icon density="xhdpi" src="res/icon/android/xhdpi.png" />
+        <!-- xxhdpi -->
+        <icon density="xxhdpi" src="res/icon/android/xxhdpi.png" />
+        <!-- xxxhdpi -->
+        <icon density="xxxhdpi" src="res/icon/android/xxxhdpi.png" />
+        
+        <!-- 启动画面 - portrait -->
+        <splash density="port-ldpi" src="res/screen/android/splash-port-ldpi.png" />
+        <splash density="port-mdpi" src="res/screen/android/splash-port-mdpi.png" />
+        <splash density="port-hdpi" src="res/screen/android/splash-port-hdpi.png" />
+        <splash density="port-xhdpi" src="res/screen/android/splash-port-xhdpi.png" />
+        <splash density="port-xxhdpi" src="res/screen/android/splash-port-xxhdpi.png" />
+        <splash density="port-xxxhdpi" src="res/screen/android/splash-port-xxxhdpi.png" />
+        
+        <!-- 允许网络访问 -->
+        <allow-intent href="market:*" />
+    </platform>
+    
+    <!-- iOS平台配置（可选） -->
+    <platform name="ios">
+        <preference name="WKWebViewOnly" value="true" />
+        <preference name="CordovaWebViewEngine" value="CDVWKWebView" />
+        
+        <!-- iOS图标 -->
+        <icon height="57" src="res/icon/ios/icon-57.png" width="57" />
+        <icon height="114" src="res/icon/ios/icon-57-2x.png" width="114" />
+        <icon height="72" src="res/icon/ios/icon-72.png" width="72" />
+        <icon height="144" src="res/icon/ios/icon-72-2x.png" width="144" />
+        
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    
+    <!-- 插件 -->
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.5" />
+    <plugin name="cordova-plugin-statusbar" spec="^3.0.0" />
+    <plugin name="cordova-plugin-splashscreen" spec="^6.0.2" />
+    <plugin name="cordova-plugin-device" spec="^2.1.0" />
+    <plugin name="cordova-plugin-vibration" spec="^3.1.1" />
+    
+    <!-- 引擎 -->
+    <engine name="android" spec="^11.0.0" />
+</widget>

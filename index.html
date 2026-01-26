@@ -7,6 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 <meta name="format-detection" content="telephone=no" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
 <link href="css/chess.css" rel="stylesheet" type="text/css">
 <!--[if lt IE 9]>
 <script> alert("对不起，您的浏览器不支持HTML5，请升级浏览器至IE9、firefox或者谷歌浏览器！")</script>
@@ -58,11 +59,11 @@
 		</div>
 		<a id = "clasliBtn">开始挑战</a> </div>
 </div>
+<script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 <script type="text/javascript" src="js/play.js"></script>
 <script type="text/javascript" src="js/AI.js"></script>
 <script type="text/javascript" src="js/gambit.js"></script>
 <script type="text/javascript" src="js/clasli.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/cordova-2.2.0.js"></script>
 </body>
 </html>

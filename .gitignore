@@ -1,0 +1,72 @@
+# Cordova / PhoneGap
+platforms/
+plugins/
+www/
+
+# Build outputs
+*.apk
+*.ipa
+*.aab
+build/
+*.keystore
+*.jks
+
+# 签名配置（敏感信息）
+build.json
+release-signing.properties
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Android Studio
+*.iml
+.gradle/
+local.properties
+*.apk
+*.ap_
+*.dex
+*.class
+bin/
+gen/
+out/
+.navigation/
+captures/
+.externalNativeBuild
+.cxx
+
+# iOS / Xcode
+*.xcodeproj
+*.xcworkspace
+xcuserdata/
+DerivedData/
+
+# Resources (如果使用自动生成)
+icon-source.png
+splash-source.png
+
+# Environment
+.env
+.env.local
+.env.*.local
